@@ -1960,7 +1960,7 @@ int dlt_daemon_local_ecu_version_init(DltDaemon *daemon, DltDaemonLocal *daemon_
     off_t offset = 0;
 
     while (!feof(f)) {
-        offset += (off_t) fread(version + offset, 1, (size_t) size, f);
+        offset += (off_t) fread(version + offset, 1, (size_t) size + 1, f);
 
         if (ferror(f)) {
             dlt_log(LOG_WARNING, "Failed to read ECU Software version file.\n");
